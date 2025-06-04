@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tarea: Acreditable</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .fade-in {
+      animation: fadeIn 1s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- Navegación -->
+  <nav class="bg-white fixed top-0 left-0 w-full shadow z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-blue-700">Resumen de Redes Neuronales</a>
+      <ul class="flex space-x-6 text-gray-600 text-sm font-medium">
+        <li><a href="#introduccion" class="hover:text-blue-500">Inicio</a></li>
+        <li><a href="#fundamentos" class="hover:text-blue-500">Fundamentos</a></li>
+        <li><a href="#tipos" class="hover:text-blue-500">Tipos</a></li>
+        <li><a href="#entrenamiento" class="hover:text-blue-500">Entrenamiento</a></li>
+        <li><a href="#aplicaciones" class="hover:text-blue-500">Aplicaciones</a></li>
+        <li><a href="#final" class="hover:text-blue-500">Final</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Encabezado principal -->
+  <header class="bg-gradient-to-br from-blue-600 to-blue-400 text-white py-40 text-center mt-16 shadow-lg">
+    <div class="max-w-3xl mx-auto px-4">
+      <h1 class="text-5xl font-bold leading-tight mb-4">Redes Neuronales Artificiales</h1>
+      <p class="text-lg text-blue-100">Conceptos, tipos y aplicaciones del cerebro digital del siglo XXI.</p>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="px-6 md:px-10 space-y-28 py-20">
+
+    <!-- Introducción -->
+    <section id="introduccion" class="max-w-5xl mx-auto bg-white p-10 rounded-3xl shadow-xl fade-in">
+      <h2 class="text-3xl font-bold text-blue-700 mb-6">1. Introducción</h2>
+      <p class="mb-4">
+        Las redes neuronales artificiales (RNA) representan un paradigma computacional inspirado en la estructura y funcionamiento del sistema nervioso biológico, en particular del cerebro humano. Su propósito fundamental es emular la capacidad del cerebro de aprender a partir de la experiencia, generalizar desde ejemplos, adaptarse a nuevas situaciones y abstraer patrones subyacentes en los datos.
+      </p>
+      <p class="mb-4">
+        A diferencia de los algoritmos tradicionales que dependen de instrucciones explícitas programadas por humanos, las RNA permiten una aproximación flexible y autoajustable a problemas complejos que difícilmente pueden resolverse mediante lógica formal o programación convencional.
+      </p>
+      <p class="mb-4">
+        El origen de las RNA se remonta a estudios neurocientíficos del siglo XX, pero su consolidación como herramienta computacional fue posible gracias a la convergencia de tres factores clave: (1) el incremento de la capacidad de cómputo con la aparición de procesadores más rápidos y memorias más amplias; (2) la disponibilidad masiva de datos gracias a la digitalización del mundo; y (3) el desarrollo de algoritmos de entrenamiento eficientes como la retropropagación del error (Backpropagation), que permite el ajuste sistemático de los parámetros internos de una red con base en ejemplos supervisados.
+      </p>
+      <p class="mb-4">
+        Este enfoque hace posible que una máquina aprenda a reconocer caracteres escritos a mano, diagnosticar enfermedades, conducir vehículos autónomos o generar lenguaje natural, entre muchas otras tareas. En lugar de programar reglas específicas, se entrena una red mostrándole entradas y salidas esperadas, permitiéndole ajustar sus conexiones internas hasta lograr resultados aceptables. Así, las RNA no solo replican ciertas capacidades humanas, sino que las superan en precisión, velocidad y escalabilidad en múltiples dominios.
+      </p>
+      <p class="mb-4">
+        La primera sección del curso sienta las bases teóricas de este modelo, destacando su diferencia esencial con los métodos clásicos de computación, los principios del aprendizaje automatizado y el potencial de las redes para resolver problemas tanto deterministas como ambiguos. Al mismo tiempo, introduce la noción de arquitectura neuronal como un espacio de diseño donde la topología, las funciones de activación y los mecanismos de aprendizaje definen el comportamiento emergente del sistema.
+      </p>
+    </section>
+
+    <!-- Fundamentos -->
+    <section id="fundamentos" class="max-w-5xl mx-auto bg-white p-10 rounded-3xl shadow-xl fade-in">
+      <h2 class="text-3xl font-bold text-blue-700 mb-6">2. Fundamentos y Neuronas</h2>
+      <p class="mb-4">
+        El segundo capítulo del curso establece los principios fundamentales sobre los que se construyen las redes neuronales artificiales, abordando tanto la analogía biológica que las inspira como los componentes formales que permiten su implementación matemática y computacional.
+      </p>
+      <p class="mb-4">
+        En la base de toda red neuronal está la neurona artificial, una unidad de procesamiento elemental que simula el comportamiento de una neurona biológica. En el sistema nervioso, una neurona recibe impulsos eléctricos a través de las dendritas, procesa esta información en el soma y genera una señal de salida a través del axón. Las neuronas están conectadas entre sí mediante sinapsis, cuya eficacia se fortalece o debilita mediante la experiencia, dando lugar al aprendizaje.
+      </p>
+      <p class="mb-4">
+        En el modelo artificial, este proceso se representa con entradas numéricas ponderadas (pesos sinápticos), una función de suma que integra dichas entradas, y una función de activación que decide si la neurona “se activa” o no.
+      </p>
+      <p class="mb-4">
+        El comportamiento de la red depende críticamente de estos pesos, que se modifican durante el proceso de entrenamiento, y de la función de activación, que determina la no linealidad de la salida. Entre las funciones más comunes están la función escalón, la sigmoide logística, la tangente hiperbólica y la ReLU (Rectified Linear Unit), cada una con sus ventajas y limitaciones.
+      </p>
+      <p class="mb-4">
+        Desde el punto de vista arquitectónico, las RNA se organizan en capas: una capa de entrada que recibe los datos, una o más capas ocultas que extraen y transforman representaciones internas, y una capa de salida que produce la respuesta del sistema. La profundidad (número de capas ocultas) y la anchura (número de neuronas por capa) influyen directamente en la capacidad expresiva de la red.
+      </p>
+      <p class="mb-4">
+        Las redes más simples, como el perceptrón, poseen una sola capa y son capaces únicamente de resolver problemas lineales; mientras que las redes multicapa (MLP) son capaces de aproximar funciones complejas y no lineales, convirtiéndose en la base del aprendizaje profundo moderno.
+      </p>
+      <p class="mb-4">
+        Este capítulo también introduce formalismos clave como el cálculo de la salida de una neurona, el concepto de vector de pesos, el umbral o bias, y el papel crucial de la activación no lineal en la capacidad de la red para resolver problemas no trivialmente separables. Se destacan las diferencias entre modelos con y sin retroalimentación (redes feedforward vs redes recurrentes), y se sienta el marco teórico para comprender cómo estas estructuras pueden ser entrenadas de manera eficaz para extraer información útil de los datos.
+      </p>
+    </section>
+
+    <!-- Tipos de Redes -->
+    <section id="tipos" class="max-w-5xl mx-auto bg-white p-10 rounded-3xl shadow-xl fade-in">
+      <h2 class="text-3xl font-bold text-blue-700 mb-6">3. Tipos de Redes Neuronales</h2>
+      <p class="mb-6">
+    Las redes neuronales artificiales pueden clasificarse en diferentes tipos según su arquitectura, función de activación, tipo de aprendizaje y flujo de información. Cada tipo tiene ventajas y limitaciones, y se aplica mejor en contextos específicos. A continuación, se describen las principales clases de RNA que han marcado el desarrollo del campo.
+  </p>
+
+  <div>
+      <h3 class="text-xl font-semibold mb-2">- Perceptrón</h3>
+      <p>
+        El perceptrón es la red neuronal más simple. Consiste en una sola neurona con entradas ponderadas, una función de activación (generalmente escalón), y una única salida. Fue introducido por Frank Rosenblatt en 1958. Solo puede resolver problemas linealmente separables, lo que limita su aplicabilidad. Su importancia histórica radica en que sentó las bases del aprendizaje automático supervisado.
+      </p>
+    </div>
+<br>
+    <div>
+      <h3 class="text-xl font-semibold mb-2">- Adaline y Madaline</h3>
+      <p>
+        ADALINE (Adaptive Linear Neuron) es similar al perceptrón, pero utiliza una función de activación lineal y una regla de aprendizaje basada en mínimos cuadrados. MADALINE es una red multicapa de ADALINEs que fue una de las primeras en resolver problemas no lineales simples mediante un entrenamiento jerárquico. Ambos modelos fueron desarrollados por Bernard Widrow y Ted Hoff.
+      </p>
+    </div>
+<br>
+    <div>
+      <h3 class="text-xl font-semibold mb-2">- Redes Multicapa con Backpropagation</h3>
+      <p>
+        Las redes multicapa (MLP) utilizan una o más capas ocultas y una función de activación no lineal como la sigmoide o ReLU. El algoritmo de retropropagación del error (Backpropagation) permite ajustar los pesos usando el descenso del gradiente. Estas redes pueden aproximar funciones no lineales complejas y son la base del aprendizaje profundo.
+      </p>
+    </div>
+<br>
+    <div>
+      <h3 class="text-xl font-semibold mb-2">- Mapas Autoorganizados (SOM – Kohonen)</h3>
+      <p>
+        Los SOM son redes no supervisadas que mapean datos multidimensionales a un espacio de menor dimensión, típicamente 2D. Las neuronas se organizan topológicamente y compiten para responder a una entrada. Son útiles para clasificación y visualización de datos. Fueron desarrollados por Teuvo Kohonen.
+      </p>
+    </div>
+<br>
+    <div>
+      <h3 class="text-xl font-semibold mb-2">- Redes de Hopfield</h3>
+      <p>
+        Son redes completamente conectadas y recurrentes. Funcionan como memorias asociativas: se les proporciona una entrada parcial o corrupta y la red converge a un patrón previamente almacenado. Usan una función de energía para alcanzar estados estables. Son útiles para recuperación de patrones y resolución de problemas combinatorios.
+      </p>
+    </div>
+<br>
+    <div>
+      <h3 class="text-xl font-semibold mb-2">- BAM (Bidirectional Associative Memory)</h3>
+      <p>
+        BAM extiende el modelo de Hopfield permitiendo asociaciones bidireccionales entre dos conjuntos de patrones. Permiten recuperar un patrón en un conjunto dado el correspondiente en el otro. Se aplican a tareas de traducción de lenguajes y memoria semántica.
+      </p>
+    </div>
+<br>
+    <div>
+      <h3 class="text-xl font-semibold mb-2">- ART (Adaptive Resonance Theory)</h3>
+      <p>
+        Las redes ART fueron desarrolladas por Stephen Grossberg y Gail Carpenter. Son capaces de aprender nuevos patrones sin olvidar los anteriores, resolviendo el problema de la estabilidad-plasticidad. ART1 trabaja con entradas binarias, ART2 con datos continuos. Se usan en reconocimiento de patrones adaptativo y categorización.
+      </p>
+    </div>
+<br>
+    <div>
+      <h3 class="text-xl font-semibold mb-2">- Máquinas de Boltzmann</h3>
+      <p>
+        Estas redes estocásticas utilizan unidades ocultas con estados binarios probabilísticos. Funcionan como redes generativas y están relacionadas con la física estadística. Su entrenamiento requiere métodos como el algoritmo de muestreo de Gibbs. Son la base de modelos más modernos como Restricted Boltzmann Machines (RBM) y Deep Belief Networks (DBN).
+      </p>
+    </div>
+  </div>
+    </section>
+
+    <!-- Entrenamiento -->
+    <section id="entrenamiento" class="max-w-5xl mx-auto bg-white p-10 rounded-3xl shadow-xl fade-in">
+      <h2 class="text-3xl font-bold text-blue-700 mb-6">4. Algoritmos de Entrenamiento</h2>
+      <p class="mb-6">
+    El proceso de entrenamiento de una red neuronal artificial consiste en ajustar los pesos de sus conexiones para minimizar la diferencia entre las salidas que produce la red y las salidas esperadas. Este ajuste se realiza de forma iterativa y puede ser supervisado, no supervisado o por refuerzo, dependiendo de si se utilizan datos etiquetados, sin etiquetas o con retroalimentación basada en recompensa.
+  </p>
+
+  <div>
+      <h3 class="text-xl font-semibold mb-2">- Backpropagation (Retropropagación del Error)</h3>
+      <p>
+        Es el algoritmo más utilizado en redes multicapa. Funciona en dos fases: en la primera, la información se propaga hacia adelante para calcular la salida. En la segunda, el error entre la salida obtenida y la deseada se propaga hacia atrás y se calcula el gradiente del error respecto a cada peso. Este gradiente se usa para ajustar los pesos mediante una técnica como el descenso del gradiente.
+      </p>
+      <p>
+        Este método permite que las redes profundas aprendan representaciones jerárquicas, y ha sido la base del auge del deep learning. Su principal limitación es que puede quedarse atrapado en mínimos locales y sufrir de problemas como el desvanecimiento del gradiente.
+      </p>
+    </div>
+<br>
+    <div>
+      <h3 class="text-xl font-semibold mb-2">- Regla de Hebb</h3>
+      <p>
+        Inspirado en procesos de aprendizaje biológicos, el principio de Hebb establece que “si dos neuronas se activan juntas, su conexión se fortalece”. Este método de entrenamiento no supervisado se utiliza en redes como Hopfield o redes competitivas. Aunque es simple, su uso está limitado a tareas donde no se requiere supervisión explícita.
+      </p>
+    </div>
+<br>
+    <div>
+      <h3 class="text-xl font-semibold mb-2">- Algoritmos Supervisados Alternativos</h3>
+      <ul class="list-disc list-inside space-y-2">
+        <li>
+          <strong>Delta-Bar-Delta:</strong> adapta la tasa de aprendizaje individualmente para cada peso. Permite un entrenamiento más rápido y estable que Backpropagation puro.
+        </li>
+        <li>
+          <strong>Quickprop:</strong> utiliza una aproximación parabólica para ajustar los pesos más rápido que el descenso del gradiente estándar.
+        </li>
+        <li>
+          <strong>Cascade-Correlation:</strong> construye dinámicamente la arquitectura de la red añadiendo nuevas neuronas durante el entrenamiento, según sea necesario.
+        </li>
+        <li>
+          <strong>Resilient Propagation (Rprop):</strong> se centra en el signo del gradiente y ajusta los pesos independientemente de su magnitud, resolviendo problemas de escalado.
+        </li>
+      </ul>
+    </div>
+<br>
+    <div>
+      <h3 class="text-xl font-semibold mb-2">- Entrenamiento No Supervisado</h3>
+      <p>
+        En redes como los Mapas Autoorganizados de Kohonen (SOM), el entrenamiento no requiere salidas deseadas. Las neuronas compiten por activarse, y solo la “ganadora” (la más parecida al estímulo) ajusta sus pesos. Esto permite formar mapas topológicos que agrupan patrones similares.
+      </p>
+    </div>
+<br>
+    <div>
+      <h3 class="text-xl font-semibold mb-2">- Avances y Técnicas Modernas</h3>
+      <p>
+        En el contexto actual del aprendizaje profundo, se han implementado optimizadores más eficientes como Adam, RMSprop, y AdaGrad, que mejoran la velocidad de convergencia. Además, se han introducido técnicas de regularización como Dropout (para prevenir sobreajuste), Batch Normalization (para estabilizar el aprendizaje), y Early Stopping (para evitar entrenar de más).
+      </p>
+      <p>
+        Estas estrategias modernas han sido fundamentales para el entrenamiento exitoso de redes neuronales profundas y redes convolucionales en grandes conjuntos de datos como ImageNet.
+      </p>
+    </div>
+  </div>
+    </section>
+
+    <section id="aplicaciones" class="max-w-5xl mx-auto bg-white p-10 rounded-3xl shadow-xl fade-in">
+      <h2 class="text-3xl font-bold text-blue-700 mb-6">5. Aplicaciones Reales</h2>
+      <p class="mb-6">
+    Las redes neuronales artificiales han dejado de ser exclusivamente objetos de estudio académico para convertirse en componentes clave de productos, servicios y sistemas inteligentes en el mundo real. Gracias a su capacidad para aprender patrones, adaptarse a nuevos contextos y procesar grandes volúmenes de datos, se han implementado con éxito en áreas tan diversas como la medicina, las finanzas, la industria creativa, la robótica y la ciencia.
+  </p>
+
+  <div class="space-y-8">
+
+    <div>
+      <h3 class="text-xl font-semibold mb-2">- Procesamiento de Voz y Lenguaje Natural</h3>
+      <p>
+        Las RNA son la base de tecnologías como asistentes virtuales (Siri, Alexa), traducción automática (Google Translate), y modelos de lenguaje avanzados como ChatGPT. Estos modelos se entrenan con millones de textos para generar lenguaje humano coherente, responder preguntas, redactar textos y sostener conversaciones en tiempo real.
+      </p>
+      <p>
+        Un ejemplo temprano es <strong>NetTalk</strong>, una red que aprendió a convertir texto escrito en sonidos, imitando el proceso de lectura humana. Hoy, tecnologías de síntesis de voz como <em>text-to-speech</em> (TTS) y reconocimiento automático del habla (ASR) están impulsadas por redes recurrentes y transformers.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="text-xl font-semibold mb-2">- Visión por Computadora</h3>
+      <p>
+        Las redes convolucionales (CNN) son ampliamente usadas para detectar objetos, clasificar imágenes, diagnosticar enfermedades mediante escaneos médicos, e incluso analizar emociones faciales. Empresas como NEC lograron reconocimiento óptico de caracteres con más del 99% de precisión.
+      </p>
+      <p>
+        En medicina, RNA han sido entrenadas para identificar tumores en radiografías o anomalías en imágenes de resonancia magnética con niveles de precisión comparables a especialistas humanos.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="text-xl font-semibold mb-2">- Predicción Financiera y de Series Temporales</h3>
+      <p>
+        Las redes neuronales se utilizan en el análisis bursátil, detección de fraudes, y evaluación de riesgo crediticio. Modelos como las LSTM (Long Short-Term Memory) permiten predecir comportamientos futuros a partir de secuencias de datos, como precios de acciones, demanda de energía o evolución de epidemias.
+      </p>
+      <p>
+        Estos modelos también se utilizan para el mantenimiento predictivo en industrias, anticipando fallos de maquinaria antes de que ocurran, lo cual ahorra millones en reparaciones y tiempo de inactividad.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="text-xl font-semibold mb-2">- Robótica e Inteligencia Autónoma</h3>
+      <p>
+        Las RNA permiten que los robots aprendan a adaptarse a su entorno. En robótica móvil, por ejemplo, se usan redes para evitar obstáculos, planificar trayectorias y realizar tareas de ensamblaje. En brazos robóticos, controladores neuronales corrigen errores de posición en tiempo real.
+      </p>
+      <p>
+        Las redes también son utilizadas en vehículos autónomos, como los de Tesla o Waymo, para interpretar el entorno, tomar decisiones de conducción y anticipar movimientos de otros vehículos.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="text-xl font-semibold mb-2">- Bioinformática y Ciencias Naturales</h3>
+      <p>
+        Uno de los hitos más destacados fue el desarrollo de <strong>AlphaFold</strong> por DeepMind, una red neuronal que predice la estructura 3D de proteínas con precisión atómica. Este avance ha revolucionado la biología estructural y puede acelerar el descubrimiento de nuevos medicamentos.
+      </p>
+      <p>
+        En climatología, las redes se usan para modelar sistemas caóticos como el clima, pronosticar fenómenos extremos y analizar datos satelitales en tiempo real.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="text-xl font-semibold mb-2">- Arte, Música y Creatividad</h3>
+      <p>
+        Las RNA también están presentes en la creación de obras artísticas, composición de música y generación de imágenes. Redes generativas como las GAN (Generative Adversarial Networks) permiten crear rostros sintéticos, restaurar imágenes antiguas, diseñar ropa o incluso escribir poesía.
+      </p>
+      <p>
+        Estas herramientas no reemplazan al artista humano, pero se convierten en colaboradoras creativas, ampliando las posibilidades expresivas en disciplinas como el cine, la publicidad, el diseño y la animación.
+      </p>
+    </div>
+  </div>
+    </section>
+
+    <!-- Consideraciones Finales -->
+    <section id="final" class="max-w-5xl mx-auto bg-white p-10 rounded-3xl shadow-xl fade-in">
+      <h2 class="text-3xl font-bold text-blue-700 mb-6">6. Consideraciones Finales</h2>
+      <p class="mb-6">
+    Las redes neuronales artificiales (RNA) han evolucionado de ser una curiosidad teórica a convertirse en uno de los pilares de la inteligencia artificial moderna. Su capacidad de aprender patrones complejos a partir de datos sin necesidad de reglas explícitas ha revolucionado sectores como la salud, el transporte, las finanzas, la industria, la seguridad, la educación y el entretenimiento.
+  </p>
+
+  <p class="mb-6">
+    Uno de los principales aportes de las RNA es su flexibilidad: el mismo principio general de una red puede aplicarse para reconocer imágenes, traducir idiomas, predecir series temporales o tomar decisiones en tiempo real. Esta versatilidad ha sido posible gracias a los avances en algoritmos, la disponibilidad de grandes volúmenes de datos (big data) y el desarrollo de hardware especializado como GPUs y TPUs, que permiten acelerar el entrenamiento de modelos complejos.
+  </p>
+
+  <p class="mb-6">
+    Sin embargo, no están exentas de limitaciones. El entrenamiento de redes profundas puede ser costoso computacionalmente y sensible a la calidad y cantidad de los datos. Además, aunque son capaces de producir resultados sorprendentes, muchas RNA son criticadas por su falta de interpretabilidad: se comportan como “cajas negras”, lo cual puede ser problemático en contextos donde se requiere transparencia, como la medicina o la justicia.
+  </p>
+
+  <p class="mb-6">
+    Otro desafío importante es la dependencia de la generalización: una red mal entrenada o expuesta a datos sesgados puede producir errores significativos o reforzar desigualdades. Por ello, cada vez se da mayor relevancia a temas como la ética de la inteligencia artificial, la explicabilidad de los modelos (XAI) y el diseño de sistemas híbridos que combinen reglas explícitas con aprendizaje automático.
+  </p>
+
+  <p class="mb-6">
+    Mirando hacia el futuro, se espera que las redes neuronales continúen expandiéndose hacia nuevas áreas, integrándose con otras ramas como la neurociencia, la computación cuántica y los modelos generativos. Tecnologías como los transformers, las redes neuronales espaciotemporales, las redes neuromórficas y la inteligencia artificial general (AGI) están marcando una nueva frontera.
+  </p>
+
+  <p class="mb-6">
+    En conclusión, el estudio de las RNA no solo permite entender una herramienta poderosa, sino también participar activamente en la transformación tecnológica de nuestro tiempo. Comprender sus fundamentos, capacidades y límites es esencial para quienes deseen contribuir ética y eficazmente a la revolución digital en curso.
+  </p>
+</section>
+    </section>
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="bg-white border-t text-center py-6 text-gray-500 text-sm">
+    Estudiantes: Nixon Garcia y Flavya Curiel - Seccion 4-71
+  </footer>
+
+</body>
+</html>
